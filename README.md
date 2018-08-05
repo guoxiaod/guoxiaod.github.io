@@ -1,3 +1,3 @@
 ## Welcome to Anders's Pages
 
-- [SaltStack](/SaltStack)
+- [SaltStack](/2018/08/05/saltstack.html)
