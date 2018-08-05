@@ -6,7 +6,7 @@
 
 
 ```salt
-{% raw %}
+# user.sls -- begin {% raw %}
 {%
 set users = [
   {
@@ -33,7 +33,7 @@ set users = [
       - wheel
 {% endif %}
 {% endfor %}
-{% endraw %}
+# user.sls -- end {% endraw %}
 ```
 
 上面提到的 password 并不是密码明文，而是密码明文使用特定算法处理的哈希串，可以使用如下的脚本来生成:
