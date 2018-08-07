@@ -9,7 +9,7 @@ date: 2018-08-05 22:25:01 +08:00
 #### 添加账号
 
 
-{% highlight salt %}
+```salt
 # user.sls -- begin {% raw %}
 {%
 set users = [
@@ -38,28 +38,28 @@ set users = [
 {% endif %}
 {% endfor %}
 # user.sls -- end {% endraw %}
-{% endhighlight %}
+```
 
 上面提到的 password 并不是密码明文，而是密码明文使用特定算法处理的哈希串，可以使用如下的脚本来生成:
 
-{% highlight bash %}
+```bash
 ## Python 代码
 ## 使用交互式的方式生成 password 
 $ python -c 'import crypt,getpass;pw=getpass.getpass();print(crypt.crypt(pw) if (pw==getpass.getpass("Confirm: ")) else exit())'
 ## 直接在脚本中指定明文密码, 生成 password
 $ python -c 'import crypt,getpass;pw="12345678";print(crypt.crypt(pw))'
-{% endhighlight %}
+```
 
-{% highlight bash %}
+```bash
 ## PHP 代码
 $ php -r 'echo crypt("yourpassword", "$6$" . base64_encode(random_bytes(6)) . "$");'
-{% endhighlight %}
+```
 
 ### SALT.STATES.SSH_KNOWN_HOSTS
 
 #### 确保指定的域名在 给定的 user 的 known_hosts 文件中
 
-{% highlight salt %}
+```salt
 anders.just-a-example.com:
   ssh_known_hosts:
     - present
@@ -67,7 +67,7 @@ anders.just-a-example.com:
     - enc: ecdsa
     - fingerprint: 'xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx:xx'
     - fingerprint_hash_type: sha256
-{% endhighlight %}
+```
 
 上面提到的 fingerprint 为 给定的域名(anders.just-a-example.com 指向的服务器的 fingerprint, fingerprint_hash_type 设定 fingerprint 的类型, fingerprint_hash_type 支持:
 
@@ -76,7 +76,7 @@ anders.just-a-example.com:
 
 可以通过如下的方式来获取到对应的 fingerprint
 
-{% highlight bash %}
+```bash
 # 如果选择 md5, 使用如下命令获取
 # (命令中的 -t 参数 需要和 ssh_known_hosts 中的 enc 参数一致)
 $ ssh-keyscan -t ecdsa anders.just-a-example.com 2>/dev/null \
@@ -93,7 +93,7 @@ $ ssh-keyscan -t ecdsa anders.just-a-example.com 2>/dev/null \
     | base64 -d 2>/dev/null  \
     | hexdump -e '/1 "%02x:"' \
     | sed -e 's/:$/\n/' 
-{% endhighlight %}
+```
 
 ### 参考文档
 

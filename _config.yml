@@ -1,14 +1,20 @@
 theme: jekyll-theme-slate
+markdown: redcarpet
 highlighter: pygments
-markdown: kramdown  # [ maruku | rdiscount | kramdown | redcarpet ]
-kramdown:
-  input:         GFM
-  input: KramdownEasyLink
-  auto_ids:      true
-  auto_id_prefix: 'id-'
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+
+#highlighter: pygments
+#markdown: kramdown  # [ maruku | rdiscount | kramdown | redcarpet ]
+#kramdown:
+#  input:         GFM
+#  input: KramdownEasyLink
+#  auto_ids:      true
+#  auto_id_prefix: 'id-'
+#  footnote_nr: 1
+#  entity_output: as_char
+#  toc_levels: 1..6
+#  smart_quotes: lsquo,rsquo,ldquo,rdquo
 plugins:
   - jekyll-toc
+
