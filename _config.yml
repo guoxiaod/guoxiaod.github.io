@@ -2,7 +2,12 @@ theme: jekyll-theme-slate
 markdown: redcarpet
 highlighter: pygments
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+  extensions: 
+    - no_intra_emphasis 
+    - fenced_code_blocks
+    - autolink
+    - strikethrough
+    - superscript
 
 #highlighter: pygments
 #markdown: kramdown  # [ maruku | rdiscount | kramdown | redcarpet ]
