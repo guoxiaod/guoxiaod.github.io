@@ -22,4 +22,3 @@ redcarpet:
 #  smart_quotes: lsquo,rsquo,ldquo,rdquo
 plugins:
   - jekyll-toc
-
